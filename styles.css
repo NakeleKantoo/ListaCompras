@@ -1,0 +1,45 @@
+:root {
+    --primary:#343434;
+    --clicked:#245236;
+    --background:#121212;
+    --backsecond:#575757;
+    --text:#fff;
+}
+
+body {
+    background-color: var(--background);
+}
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th {
+    background-color: var(--primary) !important;
+}
+
+th,
+td {
+    border: 1px solid var(--primary);
+    text-align: center;
+    padding: 8px;
+    background-color: var(--background);
+    color: var(--text)
+}
+
+.header {
+    background-color: var(--backsecond);
+    display: flex;
+    flex-direction: row;
+    color: var(--text);
+}
+
+.right {
+    margin-left: auto;
+}
+
+.left {
+    margin-right: auto;
+}
