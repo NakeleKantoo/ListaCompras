@@ -7,5 +7,3 @@ function change(id) {
 function addItens() {
 
 }
-
-function 
