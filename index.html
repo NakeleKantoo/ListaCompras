@@ -2,56 +2,60 @@
 <html lang="">
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Compras</title>
     <link rel="stylesheet" type="text/css" href="styles.css"/>
   </head>
   <body>
     <div class="header">
       <div class="left">
-        <button></button>
+        <button id="btnMenu"><img class="small-image" src="img/menu.png"></button>
       </div>
-      <h1 style="text-align: center;">Lista de compras</h1>
+      <h1 class="center-text">Lista de compras</h1>
       <div class="right">
-        <button></button>
+        <button id="btnLixeira"><img class="small-image" src="img/bin.png"></button>
       </div>
     </div>
+    <dialog id="modalAdd" class="modal">
+      <form id="addForm">
+        <h3 class="center-text">Adicionar</h3>
+        <div class="flex-vertical">
+          <div class="flex-horizontal">
+            <label class="left" for="nomeTxt">Nome:</label>
+            <input id="nomeTxt" class="textbox right" name="nome" type="text">
+          </div>
+          <div class="flex-horizontal">
+            <label class="left" for="qtdTxt">Quantidade:</label>
+            <input id="qtdTxt" class="textbox right" name="qtd" type="text">
+          </div>
+          <input class="margin-top btn" type="submit" value="Adicionar item">
+        </div>
+      </form>
+    </dialog>
     <div class="body">
-      <table>
+      <table id="tabela">
         <thead>
           <th></th>
           <th>Item</th>
           <th>Quantidade</th>
+          <th>Ações</th>
         </thead>
         <tbody id="tbody">
-          <tr class="">
-            <td><input type="checkbox" onclick="change(0)"></td>
-            <td>Item</td>
-            <td>3L</td>
-          </tr>
-          <tr class="">
-            <td><input type="checkbox"></td>
-            <td>Item</td>
-            <td>3L</td>
-          </tr>
-          <tr class="">
-            <td><input type="checkbox"></td>
-            <td>Item</td>
-            <td>3L</td>
-          </tr>
-          <tr class="">
-            <td><input type="checkbox"></td>
-            <td>Item</td>
-            <td>3L</td>
-          </tr>
 
 
         </tbody>
       </table>
     </div>
     <div class="footer">
-      <button><img src="img/add.png"></img></button>
+      <div class="left credits">Lemar™</div>
+      <button id="btnAddItem" class="right"><img src="img/add.png"></img></button>
     </div>
   </body>
+
+  <script
+			  src="https://code.jquery.com/jquery-3.7.1.min.js"
+			  integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+			  crossorigin="anonymous"></script>
 
   <script src="script.js"></script>
 </html>

@@ -11,12 +11,14 @@ CREATE TABLE listacompras (
     id int auto_increment primary key,
     produto varchar(255) not null,
     quantia varchar(255) not null,
-    dtcriacao date not null
+    dtcriacao date not null,
+    user int REFERENCES(usuarios.id)
 );
 
 CREATE TABLE comprados (
     id int auto_increment primary key,
     produto varchar(255) not null,
     quantia varchar(255) not null,
-    dtcriacao date not null
-)
+    dtcriacao date not null,
+    user int REFERENCES(usuarios.id)
+);

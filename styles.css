@@ -1,33 +1,50 @@
 :root {
     --primary:#343434;
-    --clicked:#245236;
+    --strike:#a00;
     --background:#121212;
+    --backtable: #3a3a3a;
+    --backtaledone: #222;
     --backsecond:#575757;
+    --backbuttonhold: #555;
+    --backbuttonpressed: #4a4a4a;
     --text:#fff;
 }
 
 body {
     background-color: var(--background);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0px;
 }
 
 
 table {
     width: 100%;
     border-collapse: collapse;
+    overflow-wrap: anywhere;
 }
 
-th {
-    background-color: var(--primary) !important;
-}
+
 
 th,
 td {
     border: 1px solid var(--primary);
     text-align: center;
     padding: 8px;
-    background-color: var(--background);
-    color: var(--text)
+    background-color: var(--backtable);
+    color: var(--text);
+    word-wrap: break-word;
+    overflow-wrap: anywhere;
+}
+
+th {
+    background-color: var(--primary) !important;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+
+td:focus {
+    outline: none;
+    border-bottom: 2px solid var(--backsecond);
 }
 
 .header {
@@ -49,6 +66,11 @@ td {
     position: absolute;
     bottom: 0;
     right: 0;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    color: var(--text);
+    vertical-align: bottom;
 }
 
 img {
@@ -56,23 +78,121 @@ img {
     filter: invert();
 }
 
-button {
+button,.btn {
     background-color: var(--primary);
     border: 0px solid;
-    border-radius: 100%;
+    border-radius: 10%;
     margin: 20px;
-    padding: 20px;
+    padding: 10px;
     transition: ease-in-out 0.2s;
 }
-button:hover {
-    transform: scale(120%);
-    background-color: var(--backsecond);
+button:hover,.btn:hover {
+    transform: scale(105%);
+    background-color: var(--backbuttonhold);
+}
+button:active,.btn:active {
+    background-color: var(--backbuttonpressed);
 }
 
-tr.strikeout td { position:relative        } /* Setup a new coordinate system   */
-tr.strikeout td:before {                     /* Create a new element that       */
-  content: " ";                              /* …has no text content            */
-  position: absolute;                        /* …is absolutely positioned       */
-  left: 0; top: 50%; width: 100%;            /* …with the top across the middle */
-  border-bottom: 2px solid #1cc273;        /* …and with a border on the top   */
-}  
+.btn {
+    margin: 0px;
+    padding: 0px;
+    color: var(--text);
+    border-radius: 2%;
+}
+
+tr.strikeout td { position:relative } 
+tr.strikeout td:before {                     
+  content: " ";                              
+  position: absolute;                        
+  left: 0; top: 50%; width: 100%;            
+  border-bottom: 2px solid var(--strike);    
+}
+
+tr.strickeout {
+    color: var(--backtabledone);
+}
+
+.center-text {
+    text-align: center;
+}
+
+.margin-right {
+    margin-right: auto;
+}
+
+.small-image {
+    width: 25px;
+}
+
+.flex-horizontal {
+    display: flex;
+    flex-direction: row;
+    margin-top: 3px
+}
+
+.flex-vertical {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.modal {
+    background-color: var(--backsecond);
+    color: var(--text);
+    border: 2px solid var(--background);
+    padding-top: 0px;
+    border-radius: 10px;
+}
+
+input {
+    width: 100%;
+}
+
+.textbox {
+    background-color: var(--backbuttonpressed);
+    color: var(--text);
+    border: none;
+    width: fit-content;
+    transition: ease-in-out 0.2s;
+    border-bottom: 2px solid #fff0;
+}
+
+.textbox:focus {
+    outline: none;
+    border-bottom: 2px solid var(--backtaledone);
+}
+
+.margin-top {
+    margin-top: 10px;
+}
+
+.credits {
+    position: absolute;
+    bottom: 0;
+}
+
+.edit, .remove {
+    width: 30px;
+    height: 30px;
+    margin-left:10px;
+    border-radius: 5px;
+}
+
+.edit {
+    background-image: url(img/edit.png);
+    background-repeat: no-repeat;
+    background-size: 30px 30px;
+    background-color: rgb(100, 250, 150);
+}
+
+.remove {
+    background-image: url(img/bin.png);
+    background-repeat: no-repeat;
+    background-size: 30px 30px;
+    background-color: rgb(250, 100, 100);
+}
+
+.accept {
+    background-image: url(img/accept.png);
+}
