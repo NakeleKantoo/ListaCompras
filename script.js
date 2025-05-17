@@ -101,7 +101,7 @@ const form = document.getElementById('addForm');
 
     const formData = new FormData(form);
 
-    fetch('https://leonnaviegas.dev.br/api/', {
+    fetch('https://leonnaviegas.dev.br/apilc/', {
       method: 'POST',
       mode: 'no-cors', // Não permite ler a resposta
       body: formData,
