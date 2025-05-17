@@ -8,6 +8,7 @@ window.onload = () => {
     }
 }
 
+
 function change(id) {
     let table = document.getElementById('tabela');
     let tr = table.rows[id];
@@ -18,9 +19,9 @@ function change(id) {
     }
 }
 
-document.getElementById('btnAddItem').onclick = addItens;
+document.getElementById('btnAddItem').onclick = openAddModal;
 
-function addItens() {
+function openAddModal() {
     document.getElementById('modalAdd').open = !document.getElementById('modalAdd').open;
 }
 
@@ -78,6 +79,19 @@ function removeItem(index) {
 function removeRowTable(index) {
     let table = document.getElementById('tabela');
     table.deleteRow(index);
+    resetHardValues();
+}
+
+function resetHardValues() {
+    let table = document.getElementById('tabela');
+    for (let i=1; i<table.rows.length; i++) {
+        let row = table.rows[i];
+        let btnDiv = row.children[3];
+        let btnEdit = btnDiv.children[0];
+        let btnRemove = btnDiv.children[1];
+        btnEdit.setAttribute('onclick', 'editItem('+i+')');
+        btnRemove.setAttribute('onclick', 'removeItem('+i+')');
+    }
 }
 
 const form = document.getElementById('addForm');
@@ -97,6 +111,8 @@ const form = document.getElementById('addForm');
       // Você NÃO CONSEGUE acessar o conteúdo da resposta com 'no-cors'
       const data = Object.fromEntries(formData.entries());
       addItemTable(data.nome, data.qtd);
+      openAddModal();
+      form.reset();
     })
     .catch(err => {
       console.error('Erro na requisição:', err);

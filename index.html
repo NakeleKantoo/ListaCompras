@@ -22,11 +22,18 @@
         <div class="flex-vertical">
           <div class="flex-horizontal">
             <label class="left" for="nomeTxt">Nome:</label>
-            <input id="nomeTxt" class="textbox right" name="nome" type="text">
+            <input required id="nomeTxt" class="textbox" style="width: 100%;" name="nome" type="text" value="">
           </div>
           <div class="flex-horizontal">
-            <label class="left" for="qtdTxt">Quantidade:</label>
-            <input id="qtdTxt" class="textbox right" name="qtd" type="text">
+            <label class="left" for="qtdTxt" value="">Quantidade:</label>
+            <input required id="qtdTxt" class="textbox right" name="qtd" type="number">
+            <select class="textbox right">
+              <option>Un.</option>
+              <option>L.</option>
+              <option>mL.</option>
+              <option>g.</option>
+              <option>Kg.</option>
+            </select>
           </div>
           <input class="margin-top btn" type="submit" value="Adicionar item">
         </div>

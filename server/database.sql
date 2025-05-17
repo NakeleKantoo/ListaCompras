@@ -12,7 +12,7 @@ CREATE TABLE listacompras (
     produto varchar(255) not null,
     quantia varchar(255) not null,
     dtcriacao date not null,
-    user int REFERENCES(usuarios.id)
+    user int REFERENCES usuarios(id)
 );
 
 CREATE TABLE comprados (
@@ -20,5 +20,5 @@ CREATE TABLE comprados (
     produto varchar(255) not null,
     quantia varchar(255) not null,
     dtcriacao date not null,
-    user int REFERENCES(usuarios.id)
+    user int REFERENCES usuarios(id)
 );
