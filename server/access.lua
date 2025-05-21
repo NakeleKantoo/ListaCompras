@@ -43,9 +43,12 @@ function handlePut(command, rh, out)
 end
 
 function tryToSend(body, error, rh, out)
+    
     if body then
+        body = tostring(body)
         returnOk(rh, out, body)
     else
+        error = tostring(error)
         returnError(rh, out, error)
     end
 end
