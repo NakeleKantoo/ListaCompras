@@ -94,7 +94,7 @@ function finalizeEditItem(index) {
 
     let a = yyyy + '-' + mm + '-' + dd;
 
-    fetch('https://www.leonnaviegas.dev.br/apilc/compras'+id, {
+    fetch('https://www.leonnaviegas.dev.br/apilc/compras/'+id, {
         method: 'PUT',
         body: JSON.stringify({nome:name.innerText, qtd:qtd.innerText, dt:a, user:1}),
       })
