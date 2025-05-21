@@ -35,7 +35,7 @@ function handleDelete(command, rh, out)
     end
 end
 
-function handlePut(command, rh, out)
+function handlePut(command, rh, out, body)
     if command[1] == "compras" then
         local response, error = modifyCompra(body,command[2])
         tryToSend(response, error, rh, out)

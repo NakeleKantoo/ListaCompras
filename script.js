@@ -102,11 +102,6 @@ function finalizeEditItem(index) {
         method: 'PUT',
         body: JSON.stringify(ob),
       })
-      .then((response) => {
-          return response.json();
-      })
-      .then((rsp) => {
-      })
       .catch(err => {
         console.error('Erro na requisição:', err);
       });
