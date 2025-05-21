@@ -178,3 +178,14 @@ const form = document.getElementById('addForm');
       console.error('Erro na requisição:', err);
     });
   });
+
+function removeSelected() {
+    let table = document.getElementById('tabela');
+    let array = table.rows;
+    for (let i = 0; i<array.length; i++) {
+        let row = array[i];
+        if (row.classList.contains('strikeout')) {
+            removeRowTable(i);
+        }
+    }
+}
