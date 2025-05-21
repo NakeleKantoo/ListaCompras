@@ -12,7 +12,7 @@ end
 
 function modifyCompra(str,id)
     local table = json.decode(str)
-    local stmt = "UPDATE listacompras SET produto='"..table.nome.."', quantia='"..table.qtd.."';"
+    local stmt = "UPDATE listacompras SET produto='"..table.nome.."', quantia='"..table.qtd.."' WHERE id='"..id.."';"
     local num, err = conn:execute(stmt)
     return num, err
 end
