@@ -1,6 +1,6 @@
 window.onload = () => {
     
-    fetch('https://leonnaviegas.dev.br/apilc/gastos', {
+    fetch('https://leonnaviegas.dev.br/apilc/compras', {
         method: 'GET'
       })
       .then((response) => {
@@ -124,7 +124,7 @@ const form = document.getElementById('addForm');
 
     let a = yyyy + '-' + mm + '-' + dd;
 
-    fetch('https://leonnaviegas.dev.br/apilc/gastos', {
+    fetch('https://leonnaviegas.dev.br/apilc/compras', {
       method: 'POST',
       body: JSON.stringify({nome:data.nome, qtd:data.qtd, dt:a, user:""}),
     })
