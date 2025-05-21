@@ -114,9 +114,18 @@ const form = document.getElementById('addForm');
 
     const formData = new FormData(form);
 
+    var today = new Date();
+    var dd = String(today.getDate()).padStart(2, '0');
+    var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    var yyyy = today.getFullYear();
+
+    today = yyyy + '-' + mm + '-' + dd;
+
+    let a = yyyy + '-' + mm + '-' + dd;
+
     fetch('https://leonnaviegas.dev.br/apilc/gastos', {
       method: 'POST',
-      body: formData,
+      body: JSON.stringify({nome:formData.nome, qtd:formData.qtd, dt:a, user:""}),
     })
     .then(() => {
       // Só vai cair aqui se não der erro de rede
