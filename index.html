@@ -27,12 +27,12 @@
           <div class="flex-horizontal">
             <label class="left" for="qtdTxt" value="">Quantidade:</label>
             <input required id="qtdTxt" class="textbox right" name="qtd" type="number">
-            <select class="textbox right">
-              <option>Un.</option>
-              <option>L.</option>
-              <option>mL.</option>
-              <option>g.</option>
-              <option>Kg.</option>
+            <select id="unit" class="textbox right">
+              <option value="Un">Un.</option>
+              <option value="L">L.</option>
+              <option value="mL">mL.</option>
+              <option value="g">g.</option>
+              <option value="Kg">Kg.</option>
             </select>
           </div>
           <input class="margin-top btn" type="submit" value="Adicionar item">

@@ -127,14 +127,16 @@ const form = document.getElementById('addForm');
 
     let a = yyyy + '-' + mm + '-' + dd;
 
+    let qtd = data.qtd+document.getElementById('unit').value;
+
     fetch('https://leonnaviegas.dev.br/apilc/compras', {
       method: 'POST',
-      body: JSON.stringify({nome:data.nome, qtd:data.qtd, dt:a, user:""}),
+      body: JSON.stringify({nome:data.nome, qtd:qtd, dt:a, user:""}),
     })
     .then(() => {
       // Só vai cair aqui se não der erro de rede
       // Você NÃO CONSEGUE acessar o conteúdo da resposta com 'no-cors'
-      addItemTable(data.nome, data.qtd);
+      addItemTable(data.nome, qtd);
       openAddModal();
       form.reset();
     })
