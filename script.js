@@ -41,7 +41,7 @@ function openAddModal() {
 
 function loadItens(array) {
     for (let i = 0; i<array.length; i++) {
-        addItemTable(array[i].produto,array[i].quantia)
+        addItemTable(array[i].produto,array[i].quantia, array[i].id)
     }
 }
 
@@ -137,8 +137,8 @@ const form = document.getElementById('addForm');
     .then((response) => {
         return response.json();
     })
-    .then((data) => {
-      addItemTable(data.nome, qtd);
+    .then((rsp) => {
+      addItemTable(data.nome, qtd, rsp.id);
       openAddModal();
       form.reset();
     })

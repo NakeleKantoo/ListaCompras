@@ -4,7 +4,7 @@ function addCompra(str)
     local num, err = conn:execute(stmt)
     local id = conn:getlastautoid()
     if num then
-        return id, err
+        return json.encode({id = id}), err
     else
         return nil, err
     end
