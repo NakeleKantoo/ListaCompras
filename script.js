@@ -131,7 +131,7 @@ const form = document.getElementById('addForm');
 
     fetch('https://leonnaviegas.dev.br/apilc/compras', {
       method: 'POST',
-      body: JSON.stringify({nome:data.nome, qtd:qtd, dt:a, user:""}),
+      body: JSON.stringify({nome:data.nome, qtd:qtd, dt:a, user:1}),
     })
     .then(() => {
       // Só vai cair aqui se não der erro de rede
