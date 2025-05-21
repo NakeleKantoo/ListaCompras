@@ -188,4 +188,5 @@ function removeSelected() {
             removeRowTable(i);
         }
     }
+    resetHardValues();
 }
