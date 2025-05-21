@@ -76,6 +76,7 @@ function editItem(index) {
 function finalizeEditItem(index) {
     let table = document.getElementById('tabela');
     let row = table.rows[index];
+    let id = row.id.substring(3);
     let name = row.children[1];
     let qtd = row.children[2];
     let btn = row.children[3].children[0];
@@ -83,6 +84,20 @@ function finalizeEditItem(index) {
     btn.setAttribute('onclick','editItem('+index+')');
     name.contentEditable = false;
     qtd.contentEditable = false;
+
+    fetch('https://leonnaviegas.dev.br/apilc/compras'+id, {
+        method: 'PUT',
+        body: JSON.stringify({nome:data.nome, qtd:qtd, dt:a, user:1}),
+      })
+      .then((response) => {
+          return response.json();
+      })
+      .then((rsp) => {
+      })
+      .catch(err => {
+        console.error('Erro na requisição:', err);
+      });
+
 }
 
 function removeItem(index) {
@@ -95,8 +110,17 @@ function removeItem(index) {
 
 function removeRowTable(index) {
     let table = document.getElementById('tabela');
+    let row = table.rows[index];
+    let id = row.id.substring(3);
     table.deleteRow(index);
     resetHardValues();
+
+    fetch('https://leonnaviegas.dev.br/apilc/compras/'+id, {
+        method: 'DELETE',
+      })
+      .catch(err => {
+        console.error('Erro na requisição:', err);
+      });
 }
 
 function resetHardValues() {
