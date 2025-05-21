@@ -2,7 +2,12 @@ function addCompra(str)
     local table = json.decode(str)
     local stmt = "INSERT INTO listacompras (produto, quantia, dtcriacao, user) VALUES ('"..table.nome.."', '"..table.qtd.."', '"..table.dt.."', '"..table.user.."');"
     local num, err = conn:execute(stmt)
-    return num, err
+    local id = conn:getlastautoid()
+    if num then
+        return id, err
+    else
+        return nil, err
+    end
 end
 
 function modifyCompra(str,id)

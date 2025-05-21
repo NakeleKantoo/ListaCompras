@@ -45,9 +45,10 @@ function loadItens(array) {
     }
 }
 
-function addItemTable(name, qtd) {
+function addItemTable(name, qtd,id) {
     let table = document.getElementById('tabela');
     let newRow = table.insertRow();
+    newRow.id = 'row'+id;
     let columns = [
         `<input class="checkbox" type="checkbox" onclick="change(${table.rows.length-1})">`,
         name,
@@ -133,9 +134,10 @@ const form = document.getElementById('addForm');
       method: 'POST',
       body: JSON.stringify({nome:data.nome, qtd:qtd, dt:a, user:1}),
     })
-    .then(() => {
-      // Só vai cair aqui se não der erro de rede
-      // Você NÃO CONSEGUE acessar o conteúdo da resposta com 'no-cors'
+    .then((response) => {
+        return response.json();
+    })
+    .then((data) => {
       addItemTable(data.nome, qtd);
       openAddModal();
       form.reset();
