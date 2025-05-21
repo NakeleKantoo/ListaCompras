@@ -1,6 +1,10 @@
+const URL = 'https://www.leonnaviegas.dev.br/';
+
+
+
 window.onload = () => {
     
-    fetch('https://www.leonnaviegas.dev.br/apilc/compras', {
+    fetch(URL+'apilc/compras', {
         method: 'GET'
       })
       .then((response) => {
@@ -98,7 +102,7 @@ function finalizeEditItem(index) {
 
     console.log(ob);
 
-    fetch('https://www.leonnaviegas.dev.br/apilc/compras/'+id, {
+    fetch(URL+'apilc/compras/'+id, {
         method: 'PUT',
         body: JSON.stringify(ob),
       })
@@ -123,7 +127,7 @@ function removeRowTable(index) {
     table.deleteRow(index);
     resetHardValues();
 
-    fetch('https://www.leonnaviegas.dev.br/apilc/compras/'+id, {
+    fetch(URL+'apilc/compras/'+id, {
         method: 'DELETE',
       })
       .catch(err => {
@@ -162,7 +166,7 @@ const form = document.getElementById('addForm');
 
     let qtd = data.qtd+document.getElementById('unit').value;
 
-    fetch('https://www.leonnaviegas.dev.br/apilc/compras', {
+    fetch(URL+'apilc/compras', {
       method: 'POST',
       body: JSON.stringify({nome:data.nome, qtd:qtd, dt:a, user:1}),
     })
