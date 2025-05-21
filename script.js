@@ -113,6 +113,7 @@ const form = document.getElementById('addForm');
     e.preventDefault();
 
     const formData = new FormData(form);
+    const data = Object.fromEntries(formData.entries());
 
     var today = new Date();
     var dd = String(today.getDate()).padStart(2, '0');
@@ -125,12 +126,11 @@ const form = document.getElementById('addForm');
 
     fetch('https://leonnaviegas.dev.br/apilc/gastos', {
       method: 'POST',
-      body: JSON.stringify({nome:formData.nome, qtd:formData.qtd, dt:a, user:""}),
+      body: JSON.stringify({nome:data.nome, qtd:data.qtd, dt:a, user:""}),
     })
     .then(() => {
       // Só vai cair aqui se não der erro de rede
       // Você NÃO CONSEGUE acessar o conteúdo da resposta com 'no-cors'
-      const data = Object.fromEntries(formData.entries());
       addItemTable(data.nome, data.qtd);
       openAddModal();
       form.reset();
