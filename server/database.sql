@@ -5,7 +5,7 @@ CREATE TABLE usuarios (
     senha varchar(255) not null,
     alerta bit not null,
     dtcriacao date not null
-)
+);
 
 CREATE TABLE listacompras (
     id int auto_increment primary key,

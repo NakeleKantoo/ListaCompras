@@ -37,7 +37,7 @@ end
 
 function handlePut(command, rh, out)
     if command[1] == "compras" then
-        local response, error = modifyGasto(body,command[2])
+        local response, error = modifyCompra(body,command[2])
         tryToSend(response, error, rh, out)
     end
 end

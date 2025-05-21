@@ -1,5 +1,16 @@
 window.onload = () => {
-    addItemTable('foda','ASDASD');
+    
+    fetch('https://leonnaviegas.dev.br/apilc/', {
+        method: 'GET'
+      })
+      .then((response) => {
+        loadItens(JSON.parse(response));
+        form.reset();
+      })
+      .catch(err => {
+        console.error('Erro na requisição:', err);
+      });
+
     let checks = document.getElementsByTagName('input');
     for (let i=0; i<checks.length; i++) {
         if (checks.item(i).type == "checkbox") {
@@ -25,8 +36,10 @@ function openAddModal() {
     document.getElementById('modalAdd').open = !document.getElementById('modalAdd').open;
 }
 
-function loadItens() {
-
+function loadItens(array) {
+    for (let i = 0; i<array.length; i++) {
+        addItemTable(array[i].produto,array[i].quantia)
+    }
 }
 
 function addItemTable(name, qtd) {
@@ -103,7 +116,6 @@ const form = document.getElementById('addForm');
 
     fetch('https://leonnaviegas.dev.br/apilc/', {
       method: 'POST',
-      mode: 'no-cors', // Não permite ler a resposta
       body: formData,
     })
     .then(() => {
