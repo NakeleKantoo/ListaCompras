@@ -4,7 +4,10 @@ window.onload = () => {
         method: 'GET'
       })
       .then((response) => {
-        loadItens(JSON.parse(response));
+        return response.json();
+      })
+      .then((data) => {
+        loadItens(data);
         form.reset();
       })
       .catch(err => {
