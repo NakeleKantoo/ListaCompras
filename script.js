@@ -85,9 +85,18 @@ function finalizeEditItem(index) {
     name.contentEditable = false;
     qtd.contentEditable = false;
 
+    var today = new Date();
+    var dd = String(today.getDate()).padStart(2, '0');
+    var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    var yyyy = today.getFullYear();
+
+    today = yyyy + '-' + mm + '-' + dd;
+
+    let a = yyyy + '-' + mm + '-' + dd;
+
     fetch('https://www.leonnaviegas.dev.br/apilc/compras'+id, {
         method: 'PUT',
-        body: JSON.stringify({nome:data.nome, qtd:qtd, dt:a, user:1}),
+        body: JSON.stringify({nome:name.innerText, qtd:qtd.innerText, dt:a, user:1}),
       })
       .then((response) => {
           return response.json();
