@@ -182,7 +182,7 @@ const form = document.getElementById('addForm');
 function removeSelected() {
     let table = document.getElementById('tabela');
     let array = table.rows;
-    for (let i = 1; i<=array.length; i++) {
+    for (let i = array.length-1;i>=0; i--) {
         let row = array[i];
         if (row.classList.contains('strikeout')) {
             removeRowTable(i);
